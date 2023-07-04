@@ -81,7 +81,7 @@ wss.on("connection", (ws) => {
           cb();
         } else {
           isPrompting = false;
-          ws.send(input);
+          ws.send(`const res=(0, eval)(${JSON.stringify(input)});console.log(vendetta.metro.findByProps("inspect").inspect(res,{showHidden:true}));res`);
           finishCallback = cb;
         }
       } catch (e) {
